@@ -4,7 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 
 /// Tests for the [ListStore] class.
 void main() {
+  /// The instance of the ListStore being used.
   late ListStore<DataModelPuppet> _testStore;
+  /// An instance of [DataModelPuppet] used as a child of the [ListStore].
+  DataModelPuppet one = DataModelPuppet.create();
 
   /// Initialises a clean [ListStore] for each test.
   setUp(() {
@@ -12,14 +15,17 @@ void main() {
   });
 
   test("Test 1 - A valid entry can be added to a store", (){
-    DataModelPuppet one = DataModelPuppet.create();
     expect(_testStore.add(one), isTrue);
   });
 
   test("Test 2 - contains(entry) should successfully find a contained element",
           () {
-    DataModelPuppet one = DataModelPuppet.create();
     _testStore.add(one);
     expect(_testStore.contains(one), isTrue);
+  });
+
+  test("Test 3 - size() returns the correct size of the ListStore", () {
+    _testStore.add(one);
+    expect(_testStore.size(), 1);
   });
 }
