@@ -44,4 +44,9 @@ void main() {
     _testStore.empty();
     expect(_testStore.size(), 0);
   });
+
+  test("Test 6 - A duplicate element cannot be added", (){
+    expect(_testStore.add(one), isTrue);
+    expect(_testStore.add(one), isFalse);
+  });
 }
