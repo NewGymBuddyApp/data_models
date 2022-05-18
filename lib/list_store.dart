@@ -23,4 +23,9 @@ class ListStore<T extends DataModel> {
   bool contains(T entry) {
     return _store.contains(entry);
   }
+
+  /// Returns the number of elements stored in the [ListStore].
+  int size() {
+    return _store.length;
+  }
 }
