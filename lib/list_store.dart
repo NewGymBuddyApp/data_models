@@ -7,11 +7,20 @@ class ListStore<T extends DataModel> {
   /// The Set holding the instances of [DataModel].
   late Set<T> _store;
 
+  /// Constructor for the [ListStore]. Initialises the privatised [Set].
   ListStore() {
     _store = Set();
   }
 
+  /// Adds a new entry to the [ListStore]. Returns [true] if the value was
+  /// successfully added and was not already in the set
   bool add(T entry) {
     return _store.add(entry);
+  }
+
+  /// Checks the [ListStore] for membership of the provided [entry]. Returns
+  /// [true] if [T] is a member.
+  bool contains(T entry) {
+    return _store.contains(entry);
   }
 }
