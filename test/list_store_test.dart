@@ -28,4 +28,11 @@ void main() {
     _testStore.add(one);
     expect(_testStore.size(), 1);
   });
+
+  test("Test 4 - remove(entry) removes entry from the ListStore", () {
+    _testStore.add(one);
+    expect(_testStore.size(), 1);
+    _testStore.remove(one);
+    expect(_testStore.size(), 0);
+  });
 }
