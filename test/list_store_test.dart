@@ -15,11 +15,11 @@ void main() {
     _testStore = ListStore();
   });
 
-  test("Test 1 - A valid entry can be added to a store", (){
+  test("Test 1 - A valid element can be added to a store", (){
     expect(_testStore.add(one), isTrue);
   });
 
-  test("Test 2 - contains(entry) should successfully find a contained element",
+  test("Test 2 - contains(element) should successfully find a contained element",
           () {
     _testStore.add(one);
     expect(_testStore.contains(one), isTrue);
@@ -30,7 +30,7 @@ void main() {
     expect(_testStore.size(), 1);
   });
 
-  test("Test 4 - remove(entry) removes entry from the ListStore", () {
+  test("Test 4 - remove(element) removes element from the ListStore", () {
     _testStore.add(one);
     expect(_testStore.size(), 1);
     expect(_testStore.remove(one), isTrue);

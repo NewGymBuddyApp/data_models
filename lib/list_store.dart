@@ -12,16 +12,16 @@ class ListStore<T extends DataModel> {
     _store = Set();
   }
 
-  /// Adds a new entry to the [ListStore]. Returns [true] if the value was
+  /// Adds a new element to the [ListStore]. Returns [true] if the value was
   /// successfully added and was not already in the set
-  bool add(T entry) {
-    return _store.add(entry);
+  bool add(T element) {
+    return _store.add(element);
   }
 
-  /// Checks the [ListStore] for membership of the provided [entry]. Returns
+  /// Checks the [ListStore] for membership of the provided [element]. Returns
   /// [true] if [T] is a member.
-  bool contains(T entry) {
-    return _store.contains(entry);
+  bool contains(T element) {
+    return _store.contains(element);
   }
 
   /// Returns the number of elements stored in the [ListStore].
@@ -29,9 +29,14 @@ class ListStore<T extends DataModel> {
     return _store.length;
   }
 
-  /// Removes [entry] from the [ListStore]. Returns [true] if [entry] was
+  /// Removes [element] from the [ListStore]. Returns [true] if [element] was
   /// removed from [ListStore] and [false] otherwise.
-  bool remove(T entry) {
-    return _store.remove(entry);
+  bool remove(T element) {
+    return _store.remove(element);
+  }
+  
+  /// Empties the [ListStore] of all elements.
+  void empty() {
+    _store = Set();
   }
 }
