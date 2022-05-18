@@ -15,4 +15,11 @@ void main() {
     DataModelPuppet one = DataModelPuppet.create();
     expect(_testStore.add(one), isTrue);
   });
+
+  test("Test 2 - contains(entry) should successfully find a contained element",
+          () {
+    DataModelPuppet one = DataModelPuppet.create();
+    _testStore.add(one);
+    expect(_testStore.contains(one), isTrue);
+  });
 }
