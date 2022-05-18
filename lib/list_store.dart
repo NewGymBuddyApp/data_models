@@ -44,4 +44,10 @@ class ListStore<T extends DataModel> {
   DataModel get(String uid) {
     return _store.singleWhere((element) => element.uid == uid);
   }
+
+  /// Returns the [ListStore] as a List used for iteration where access
+  /// to the entire list is needed.
+  List<T> getList() {
+    return _store.toList();
+  }
 }

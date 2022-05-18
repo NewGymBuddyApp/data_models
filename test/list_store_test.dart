@@ -54,4 +54,10 @@ void main() {
     _testStore.add(one);
     expect(_testStore.get(one.uid), one);
   });
+
+  test("Test 8 - Can return a valid List from ListStore", () {
+    _testStore.add(one);
+    _testStore.add(two);
+    expect(_testStore.getList().length, 2);
+  });
 }
