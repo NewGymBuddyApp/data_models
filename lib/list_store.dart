@@ -39,4 +39,9 @@ class ListStore<T extends DataModel> {
   void empty() {
     _store = Set();
   }
+
+  /// Returns a single entry from the [ListStore].
+  DataModel get(String uid) {
+    return _store.singleWhere((element) => element.uid == uid);
+  }
 }

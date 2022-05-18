@@ -49,4 +49,9 @@ void main() {
     expect(_testStore.add(one), isTrue);
     expect(_testStore.add(one), isFalse);
   });
+
+  test("Test 7 - An element can be found and returned", () {
+    _testStore.add(one);
+    expect(_testStore.get(one.uid), one);
+  });
 }
