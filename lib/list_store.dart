@@ -10,4 +10,8 @@ class ListStore<T extends DataModel> {
   ListStore() {
     _store = Set();
   }
+
+  bool add(T entry) {
+    return _store.add(entry);
+  }
 }
