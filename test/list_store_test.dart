@@ -60,4 +60,12 @@ void main() {
     _testStore.add(two);
     expect(_testStore.getList().length, 2);
   });
+
+  test("Test 9 - getAllUID returns all the UID's of the elements in "
+      "ListStore",(){
+    _testStore.add(one);
+    _testStore.add(two);
+    List<String> matcher = [one.uid, two.uid];
+    expect(_testStore.getAllUID(), matcher);
+  });
 }

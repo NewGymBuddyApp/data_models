@@ -50,4 +50,13 @@ class ListStore<T extends DataModel> {
   List<T> getList() {
     return _store.toList();
   }
+
+  /// Returns a list containing the UID of all elements in the [ListStore].
+  List<String> getAllUID() {
+    List<String> uids = [];
+    for (var element in _store) {
+      uids.add(element.uid);
+    }
+    return uids;
+  }
 }
