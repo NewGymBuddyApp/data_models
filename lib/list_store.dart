@@ -28,4 +28,10 @@ class ListStore<T extends DataModel> {
   int size() {
     return _store.length;
   }
+
+  /// Removes [entry] from the [ListStore]. Returns [true] if [entry] was
+  /// removed from [ListStore] and [false] otherwise.
+  bool remove(T entry) {
+    return _store.remove(entry);
+  }
 }
