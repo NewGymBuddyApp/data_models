@@ -8,6 +8,7 @@ void main() {
   late ListStore<DataModelPuppet> _testStore;
   /// An instance of [DataModelPuppet] used as a child of the [ListStore].
   DataModelPuppet one = DataModelPuppet.create();
+  DataModelPuppet two = DataModelPuppet.create();
 
   /// Initialises a clean [ListStore] for each test.
   setUp(() {
@@ -33,6 +34,14 @@ void main() {
     _testStore.add(one);
     expect(_testStore.size(), 1);
     expect(_testStore.remove(one), isTrue);
+    expect(_testStore.size(), 0);
+  });
+
+  test("Test 5 - empty() wipes the list of all values", () {
+    _testStore.add(one);
+    _testStore.add(two);
+    expect(_testStore.size(), 2);
+    _testStore.empty();
     expect(_testStore.size(), 0);
   });
 }
