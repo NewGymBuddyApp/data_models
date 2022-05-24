@@ -99,4 +99,11 @@ class ListStore<T extends DataModel> {
     map["elements"] = listOfElements;
     return map;
   }
+
+  /// Invokes action on each element of this iterable in iteration order.
+  void forEach(void Function(T) action) {
+    for (T element in _store) {
+      action(element);
+    }
+  }
 }

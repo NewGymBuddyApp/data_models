@@ -97,4 +97,15 @@ void main() {
     };
     expect(actual, matcher);
   });
+
+  test("Test 13 - forEach allows easy iteration over ListStore", (){
+    _testStore.add(one);
+    _testStore.add(two);
+    String actual = "";
+    _testStore.forEach((element) {
+      actual += element.name;
+    });
+    String matcher = "ab";
+    expect(actual, matcher);
+  });
 }
