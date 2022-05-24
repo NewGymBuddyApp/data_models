@@ -4,18 +4,8 @@ import 'package:flutter_core/data_model.dart';
 /// class.
 class DataModelPuppet extends DataModel {
 
-  DataModelPuppet(String id, String name) : super(id, name) {
-    attributes = {
-      "uid" : uid,
-      "name" : this.name
-    };
-  }
-  DataModelPuppet.create(String name) : super.create(name) {
-    attributes = {
-      "uid" : uid,
-      "name" : this.name
-    };
-  }
+  DataModelPuppet(String id, String name) : super(id, name);
+  DataModelPuppet.create(String name) : super.create(name);
 
   @override
   bool equals(Object other) {

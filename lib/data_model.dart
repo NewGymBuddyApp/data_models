@@ -14,9 +14,6 @@ abstract class DataModel {
   /// String used to give a name to the model. Name also acts in place of the
   /// title and is used as a way to identify a model.
   late String _name;
-  /// Dictionary containing all attributes so that they can be referenced by
-  /// a sorting algorithm. TO BE REPLACED BY toJson method once implemented.
-  late Map<String, dynamic> attributes;
 
   /// Constructor for a pre-existing object which inherits [DataModel].
   DataModel(String id, String name) {
@@ -53,6 +50,7 @@ abstract class DataModel {
   int hashcode();
 
   /// Builds and returns a JSON representation of the object. This is used to
-  /// allow the model to be easily inserted into Firebase storage.
+  /// allow the model to be easily inserted into Firebase storage. It must be
+  /// manually ensured that all attributes are included within the returned map.
   Map<String, dynamic> toJson();
 }
