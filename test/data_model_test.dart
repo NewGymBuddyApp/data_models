@@ -6,8 +6,8 @@ void main() {
   late DataModelPuppet two;
 
   setUp((){
-    one = DataModelPuppet.create();
-    two = DataModelPuppet.create();
+    one = DataModelPuppet.create("one");
+    two = DataModelPuppet.create("two");
   });
 
   test("Test 1 - Two separately initialised instances of DataModel have "
@@ -23,7 +23,7 @@ void main() {
     // A new instance of DataModelPuppet using the id of "one" should provide
     // the same hashcode as all internal values will match. Hashcodes should
     // be equal regardless of the instance.
-    DataModelPuppet three = DataModelPuppet(one.uid);
-    expect(one.hashCode != three.hashCode, isTrue);
+    DataModelPuppet three = DataModelPuppet(one.uid, "one");
+    expect(one.hashcode(), equals(three.hashcode()));
   });
 }
