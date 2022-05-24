@@ -93,10 +93,17 @@ class ListStore<T extends DataModel> {
   Map toJson() {
     var map = {};
     var listOfElements = [];
-    for (var element in _store) {
+    forEach((element) {
       listOfElements.add(element.toJson());
-    }
+    });
     map["elements"] = listOfElements;
     return map;
+  }
+
+  /// Invokes action on each element of this iterable in iteration order.
+  void forEach(void Function(T) action) {
+    for (T element in _store) {
+      action(element);
+    }
   }
 }
