@@ -1,4 +1,4 @@
-import 'package:flutter_core/data_model.dart';
+import 'package:data_models/data_model.dart';
 
 /// Class is used as a puppet to allow testing of DataModel through an empty
 /// class.

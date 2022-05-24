@@ -1,4 +1,4 @@
-library flutter_core;
+library data_models;
 
 import 'dart:core';
 import 'package:uuid/uuid.dart';

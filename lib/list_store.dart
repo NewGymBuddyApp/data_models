@@ -1,4 +1,4 @@
-import 'package:flutter_core/data_model.dart';
+import 'package:data_models/data_model.dart';
 
 /// Model representation of a highly-customisable list which acts as a Set.
 /// Custom implementation allows many other operations to be hidden behind
