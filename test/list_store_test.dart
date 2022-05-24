@@ -87,4 +87,14 @@ void main() {
     _testStore.sort("name", false);
     expect(_testStore.getList(), matcher);
   });
+
+  test("Test 12 - toJson correctly returns a formatted Map", (){
+    _testStore.add(one);
+    _testStore.add(two);
+    Map actual = _testStore.toJson();
+    Map matcher = {
+      "elements" : [one.toJson(), two.toJson()]
+    };
+    expect(actual, matcher);
+  });
 }

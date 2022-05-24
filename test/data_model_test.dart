@@ -26,4 +26,14 @@ void main() {
     DataModelPuppet three = DataModelPuppet(one.uid, "one");
     expect(one.hashcode(), equals(three.hashcode()));
   });
+
+  test("Test 4 - DataModel can be correctly instantiated from a JSON", (){
+    Map values = {
+      "uid" : "uid",
+      "name" : "test"
+    };
+    DataModelPuppet fromJson = DataModelPuppet.fromJson(values);
+    expect(fromJson.uid, equals("uid"));
+    expect(fromJson.name, equals("test"));
+  });
 }

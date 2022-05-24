@@ -72,18 +72,31 @@ class ListStore<T extends DataModel> {
     // All elements will have the same attributes so taking the first element
     // as a test is a valid way to ensure all elements will implement
     // comparable.
-    if (_store.first.attributes[comparator] is! Comparable) {
+    if (_store.first.toJson()[comparator] is! Comparable) {
       throw const FormatException("Attribute does not implement comparable");
     } else {
       if (ascending) {
-        _store.sort((a,b) => a.attributes[comparator].compareTo(
-            b.attributes[comparator]
+        _store.sort((a,b) => a.toJson()[comparator].compareTo(
+            b.toJson()[comparator]
         ));
       } else {
-        _store.sort((a,b) => b.attributes[comparator].compareTo(
-            a.attributes[comparator]
+        _store.sort((a,b) => b.toJson()[comparator].compareTo(
+            a.toJson()[comparator]
         ));
       }
     }
+  }
+
+  /// Builds and returns a JSON representation of the object. This is used to
+  /// allow the model to be easily inserted into Firebase storage. It must be
+  /// manually ensured that all attributes are included within the returned map.
+  Map toJson() {
+    var map = {};
+    var listOfElements = [];
+    for (var element in _store) {
+      listOfElements.add(element.toJson());
+    }
+    map["elements"] = listOfElements;
+    return map;
   }
 }
