@@ -14,4 +14,16 @@ void main() {
       "different uids", () {
     expect(one.uid != two.uid, true);
   });
+
+  test("Test 2 - The hashcodes of two different objects should not be equal", (){
+    expect(one.hashCode != two.hashCode, isTrue);
+  });
+
+  test("Test 3 - The hashcodes should match when the items are the same", (){
+    // A new instance of DataModelPuppet using the id of "one" should provide
+    // the same hashcode as all internal values will match. Hashcodes should
+    // be equal regardless of the instance.
+    DataModelPuppet three = DataModelPuppet(one.uid);
+    expect(one.hashCode != three.hashCode, isTrue);
+  });
 }
