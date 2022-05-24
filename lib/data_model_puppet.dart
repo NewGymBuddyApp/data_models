@@ -27,4 +27,12 @@ class DataModelPuppet extends DataModel {
   int hashcode() {
     return Object.hash(uid, name);
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "uid" : uid,
+      "name" : name
+    };
+  }
 }

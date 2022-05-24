@@ -1,5 +1,6 @@
 library flutter_core;
 
+import 'dart:core';
 import 'package:uuid/uuid.dart';
 
 /// Generic class representation of all models. All models will share similar
@@ -50,4 +51,8 @@ abstract class DataModel {
 
   /// Calculates the hashcode of the object.
   int hashcode();
+
+  /// Builds and returns a JSON representation of the object. This is used to
+  /// allow the model to be easily inserted into Firebase storage.
+  Map<String, dynamic> toJson();
 }
