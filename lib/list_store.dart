@@ -86,4 +86,17 @@ class ListStore<T extends DataModel> {
       }
     }
   }
+
+  /// Builds and returns a JSON representation of the object. This is used to
+  /// allow the model to be easily inserted into Firebase storage. It must be
+  /// manually ensured that all attributes are included within the returned map.
+  Map toJson() {
+    var map = {};
+    var listOfElements = [];
+    for (var element in _store) {
+      listOfElements.add(element.toJson());
+    }
+    map["elements"] = listOfElements;
+    return map;
+  }
 }
