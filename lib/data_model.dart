@@ -4,7 +4,9 @@ import 'package:uuid/uuid.dart';
 
 /// Generic class representation of all models. All models will share similar
 /// attributes and methods and so this class acts as an interface for these
-/// models to ensure standardisation is maintained.
+/// models to ensure standardisation is maintained. All attributes added in
+/// implementations must either natively or manually implement [Comparable]
+/// to allow for the dynamic sorting as implemented within [ListStore].
 abstract class DataModel {
   /// The ID used to uniquely identify the model.
   String _uid = "";

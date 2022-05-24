@@ -64,4 +64,11 @@ class ListStore<T extends DataModel> {
     }
     return uids;
   }
+
+  /// Sorts the [ListStore] using the provided [comparator] and sorting
+  /// direction. [comparator] is a string referencing an attribute within the
+  /// list element type and must implement [Comparable] in order to be valid.
+  void sort(String comparator, bool ascending) {
+    _store.sort((a,b) => a.attributes[comparator].compareTo(b.attributes[comparator]));
+  }
 }

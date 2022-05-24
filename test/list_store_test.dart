@@ -7,8 +7,9 @@ void main() {
   /// The instance of the ListStore being used.
   late ListStore<DataModelPuppet> _testStore;
   /// An instance of [DataModelPuppet] used as a child of the [ListStore].
-  DataModelPuppet one = DataModelPuppet.create();
-  DataModelPuppet two = DataModelPuppet.create();
+  DataModelPuppet one = DataModelPuppet.create("a");
+  DataModelPuppet two = DataModelPuppet.create("b");
+  DataModelPuppet three = DataModelPuppet.create("c");
 
   /// Initialises a clean [ListStore] for each test.
   setUp(() {
@@ -68,4 +69,15 @@ void main() {
     List<String> matcher = [one.uid, two.uid];
     expect(_testStore.getAllUID(), matcher);
   });
+  
+  test("Test 10 - Elements can be sorted", (){
+    _testStore.add(two);
+    _testStore.add(three);
+    _testStore.add(one);
+    List<DataModelPuppet> matcher = [one, two, three];
+    _testStore.sort("name", true);
+    expect(_testStore.getList(), matcher);
+  });
+
+
 }
