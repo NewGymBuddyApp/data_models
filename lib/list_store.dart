@@ -4,18 +4,23 @@ import 'package:flutter_core/data_model.dart';
 /// Custom implementation allows many other operations to be hidden behind
 /// this object that would usually require the combination of many objects.
 class ListStore<T extends DataModel> {
-  /// The Set holding the instances of [DataModel].
-  late Set<T> _store;
+  /// The [List] holding the instances of [DataModel].
+  late List<T> _store;
 
-  /// Constructor for the [ListStore]. Initialises the privatised [Set].
+  /// Constructor for the [ListStore]. Initialises the privatised [List].
   ListStore() {
-    _store = Set();
+    _store = [];
   }
 
   /// Adds a new element to the [ListStore]. Returns [true] if the value was
   /// successfully added and was not already in the set
   bool add(T element) {
-    return _store.add(element);
+    if (_store.contains(element)) {
+      return false;
+    } else {
+      _store.add(element);
+      return true;
+    }
   }
 
   /// Checks the [ListStore] for membership of the provided [element]. Returns
@@ -37,7 +42,7 @@ class ListStore<T extends DataModel> {
   
   /// Empties the [ListStore] of all elements.
   void empty() {
-    _store = Set();
+    _store = [];
   }
 
   /// Returns a single entry from the [ListStore].
