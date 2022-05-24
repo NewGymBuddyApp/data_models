@@ -1,6 +1,6 @@
-[![TEST](https://github.com/NewGymBuddyApp/flutter_core/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/NewGymBuddyApp/flutter_core/actions/workflows/test.yml)
+[![TEST](https://github.com/NewGymBuddyApp/data_models/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/NewGymBuddyApp/flutter_core/actions/workflows/test.yml)
 
-# flutter-core
+# data_models
 _Package containing core elements of all apps developed within
 the company. Designed for internal use only._
 
