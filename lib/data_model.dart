@@ -28,4 +28,16 @@ abstract class DataModel {
 
   String get uid => _uid;
 
+
+  @override
+  bool operator ==(Object other) {
+    return equals(other);
+  }
+
+  /// Checks the equality of two objects. Returns [true] if the two objects
+  /// are equal.
+  bool equals(Object other);
+
+  /// Calculates the hashcode of the object.
+  int hashcode();
 }
