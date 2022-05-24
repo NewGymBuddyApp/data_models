@@ -72,7 +72,7 @@ class ListStore<T extends DataModel> {
     // All elements will have the same attributes so taking the first element
     // as a test is a valid way to ensure all elements will implement
     // comparable.
-    if (!_store.first.attributes[comparator] is Comparable) {
+    if (_store.first.attributes[comparator] is! Comparable) {
       throw const FormatException("Attribute does not implement comparable");
     } else {
       if (ascending) {
