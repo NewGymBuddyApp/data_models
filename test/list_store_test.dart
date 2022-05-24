@@ -79,5 +79,12 @@ void main() {
     expect(_testStore.getList(), matcher);
   });
 
-
+  test("Test 11 - Lists can be sorted in descending order", (){
+    _testStore.add(two);
+    _testStore.add(three);
+    _testStore.add(one);
+    List<DataModelPuppet> matcher = [three, two, one];
+    _testStore.sort("name", false);
+    expect(_testStore.getList(), matcher);
+  });
 }
