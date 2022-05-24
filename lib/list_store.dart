@@ -69,14 +69,21 @@ class ListStore<T extends DataModel> {
   /// direction. [comparator] is a string referencing an attribute within the
   /// list element type and must implement [Comparable] in order to be valid.
   void sort(String comparator, bool ascending) {
-    if (ascending) {
-      _store.sort((a,b) => a.attributes[comparator].compareTo(
-          b.attributes[comparator]
-      ));
+    // All elements will have the same attributes so taking the first element
+    // as a test is a valid way to ensure all elements will implement
+    // comparable.
+    if (!_store.first.attributes[comparator] is Comparable) {
+      throw const FormatException("Attribute does not implement comparable");
     } else {
-      _store.sort((a,b) => b.attributes[comparator].compareTo(
-          a.attributes[comparator]
-      ));
+      if (ascending) {
+        _store.sort((a,b) => a.attributes[comparator].compareTo(
+            b.attributes[comparator]
+        ));
+      } else {
+        _store.sort((a,b) => b.attributes[comparator].compareTo(
+            a.attributes[comparator]
+        ));
+      }
     }
   }
 }
