@@ -10,16 +10,13 @@ import 'package:uuid/uuid.dart';
 /// to allow for the dynamic sorting as implemented within [ListStore].
 abstract class DataModel {
   /// The ID used to uniquely identify the model.
-  String _uid = "";
+  late String uid;
   /// String used to give a name to the model. Name also acts in place of the
   /// title and is used as a way to identify a model.
-  late String _name;
+  late String name;
 
   /// Constructor for a pre-existing object which inherits [DataModel].
-  DataModel(String id, String name) {
-    _uid = id;
-    _name = name;
-  }
+  DataModel(this.uid, this.name);
 
   /// Constructor for a new object inheriting [DataModel]. The [Uuid] class
   /// is used to generate the objects [uid] and is being done in this way so
@@ -28,14 +25,13 @@ abstract class DataModel {
   /// dynamic value, it would become problematic to use the hashcode as the
   /// reference. As such, the UID and hashcode are two different, unique ways
   /// of checking the identity of a model.
-  DataModel.create(String name) {
+  DataModel.create(this.name) {
     var uuid = Uuid();
-    _uid = uuid.v4();
-    _name = name;
+    uid = uuid.v4();
   }
 
-  String get uid => _uid;
-  String get name => _name;
+  /// Constructor instantiating an instance of the object from a JSON object.
+  DataModel.fromJson(Map values);
 
   @override
   bool operator ==(Object other) {
