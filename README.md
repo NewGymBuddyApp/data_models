@@ -15,9 +15,9 @@ environment:
 
 Add the following snippet to your `pubspec.yaml` file:
 ```yaml
-  flutter_core:
+  data_models:
     git:
-      url: https://github.com/NewGymBuddyApp/flutter_core.git
+      url: git@github.com:NewGymBuddyApp/data_models.git
 ```
 
 
