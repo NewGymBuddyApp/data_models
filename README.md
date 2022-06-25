@@ -1,6 +1,9 @@
+
+
+# Data Models
+![GitHub](https://img.shields.io/github/license/newgymbuddyapp/data_models?style=flat-square)
 [![TEST](https://github.com/NewGymBuddyApp/data_models/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/NewGymBuddyApp/flutter_core/actions/workflows/test.yml)
 
-# data_models
 A collection of core classes used for flutter app development. Contains template classes used for models and advanced list mechanisms.
 
 ## Prerequisites
